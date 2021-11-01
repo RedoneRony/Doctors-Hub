@@ -24,22 +24,28 @@ function Header() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto nav">
-              <NavLink to="/">Home</NavLink>
-              <NavLink to="/contactus">Appointment</NavLink>
-              <NavLink to="/about">Doctors secrect </NavLink>
-              {user?.email ? (
-                <Button onClick={logout} variant="light">
+              <NavLink to="/" className="navitem">
+                Home
+              </NavLink>
+              <NavLink to="/contactus" className="navitem">
+                Appointment
+              </NavLink>
+              <NavLink to="/about" className="navitem">
+                Doctors secrect
+              </NavLink>
+              {user?.displayName ? (
+                <Button onClick={logout} variant="light" className="navitem">
                   Logout
                 </Button>
               ) : (
                 <Nav>
                   <Nav.Item className="nav-itemlist">
-                    <Nav.Link as={Link} to="/login">
+                    <Nav.Link as={Link} to="/login" className="navitem">
                       Login
                     </Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link as={Link} to="/register">
+                    <Nav.Link as={Link} to="/register" className="navitem">
                       Register
                     </Nav.Link>
                   </Nav.Item>
@@ -47,7 +53,9 @@ function Header() {
               )}
 
               <Navbar.Text>
-                <a href="#login">{user?.displayName}</a>
+                <a href="#login" className="navitem">
+                  {user?.displayName}
+                </a>
               </Navbar.Text>
             </Nav>
           </Navbar.Collapse>
